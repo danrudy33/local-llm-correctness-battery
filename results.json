@@ -1,91 +1,22 @@
 {
- "at": "2026-11-25T17:24:23.615107+00:00",
- "battery": "CASES-v2.json (15 items, partial credit, calibration-aware honesty)",
- "ranking": [
-  {
-   "config": "Qwen6-6bit-oMLX",
-   "overall": 0.84,
-   "axes": {
-    "finance": 0.75,
-    "code": 0.9,
-    "logic": 1.0,
-    "honesty": 0.667,
-    "longcontext": 1.0
-   },
-   "honesty_gate": false,
-   "run": "qwen6-omlx-v2-20261124-184900"
-  },
-  {
-   "config": "Qwen4-4bit-oMLX",
-   "overall": 0.773,
-   "axes": {
-    "finance": 0.5,
-    "code": 0.9,
-    "logic": 1.0,
-    "honesty": 0.667,
-    "longcontext": 1.0
-   },
-   "honesty_gate": false,
-   "run": "qwen4-omlx-v2-20261124-221000"
-  },
-  {
-   "config": "GLM4-oMLX",
-   "overall": 0.773,
-   "axes": {
-    "finance": 0.4,
-    "code": 1.0,
-    "logic": 1.0,
-    "honesty": 0.667,
-    "longcontext": 1.0
-   },
-   "honesty_gate": false,
-   "run": "glm4-omlx-v2-20261124-225255"
-  },
-  {
-   "config": "Qwen6-6bit-TensorFold",
-   "overall": 0.751,
-   "axes": {
-    "finance": 0.667,
-    "code": 0.9,
-    "logic": 1.0,
-    "honesty": 0.333,
-    "longcontext": 1.0
-   },
-   "honesty_gate": false,
-   "run": "qwen6-tf-v2-20261124-235028"
-  },
-  {
-   "config": "GLM6-Tandem-2Mac",
-   "overall": 0.738,
-   "axes": {
-    "finance": 0.35,
-    "code": 1.0,
-    "logic": 0.835,
-    "honesty": 0.667,
-    "longcontext": 1.0
-   },
-   "honesty_gate": false,
-   "run": "glm6-tandem-v2-20261125-075817"
-  },
-  {
-   "config": "GLM4-DFlash2-TensorFold",
-   "overall": 0.64,
-   "axes": {
-    "finance": 0.4,
-    "code": 0.75,
-    "logic": 1.0,
-    "honesty": 0.667,
-    "longcontext": 0.5
-   },
-   "honesty_gate": false,
-   "run": "glm4-dflash2-v2-20261124-184627"
-  }
- ],
- "key_findings": [
-  "oMLX beats TensorFold on quality for BOTH Qwen6 (0.840 vs 0.751) and GLM4 (0.773 vs 0.640), same weights; TF is faster but less correct/calibrated.",
-  "Qwen6-6bit-oMLX is the overall winner (0.840); Qwen4-4bit-oMLX nearly matches (0.773) \u2014 4-bit holds up well.",
-  "Two-Mac GLM6 Tandem (0.738) does NOT beat the single-Mac oMLX configs; adds complexity without quality gain (finance weak 0.35).",
-  "Honesty is probe-dependent for every model; none passes all 3 traps. Calibration (acknowledging facts-insufficient + flagged guess) is the right behavior, present in Qwen6-oMLX date answer.",
-  "Hardest finance item (6-step mortgage) truncates for verbose thinkers at 16K budget \u2014 a floor, not a discriminator."
- ]
+  "status": "withdrawn_pending_grading_audit",
+  "notice_date": "2026-11-25",
+  "validated": false,
+  "ranking": [],
+  "key_findings": [],
+  "notice": "Previously published scores, rankings, honesty-gate labels and comparative conclusions are withdrawn pending a uniform recheck of the original saved prompts and responses. Do not cite historical scores as validated results. No replacement ranking is available yet.",
+  "confirmed_grader_defects": [
+    "False negative for explicit facts-insufficiency acknowledgment followed by a clearly conditional answer.",
+    "False negative for a valid alternative debugging counterexample.",
+    "False negative for correct negative profit/loss notation when gold used positive loss magnitude."
+  ],
+  "additional_review_scope": [
+    "Numeric gold values and tolerances; false-positive credit as well as false negatives.",
+    "Question and rubric ambiguity, including supplied-policy arithmetic versus authority verification.",
+    "Delivery failures versus reasoning failures.",
+    "Public edited question variants versus exact historically executed prompts."
+  ],
+  "comparative_conclusions_withdrawn": true,
+  "historical_evidence_preserved": true,
+  "replacement_results_status": "not_yet_verified"
 }
